@@ -18,7 +18,7 @@
 "
 "-------------------------------------------------------
 " map by Luke Smith
-inoremap <Space><Space> <Esc>/<Enter>"_c4l
+inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 let maplocalleader = ","
 "                       -- C --      {{{
 "-------------------------------------------------------
