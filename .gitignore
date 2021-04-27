@@ -1,0 +1,10 @@
+# log file
+log
+
+# Assets folder
+assets/
+*/assets
+*/assets/*
+
+# any image files
+*.gif
