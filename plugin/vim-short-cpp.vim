@@ -1,7 +1,7 @@
 " ====================================================================
 " Arquivo: vim-short-cpp.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 27-04-2021
+" Ultima_modificacao: 01-05-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -47,8 +47,18 @@ autocmd FileType c,h,o inoremap main #include <stdio.h><Enter>
 autocmd FileType c,h,o inoremap prt printf("<++>",<++>); 
 autocmd FileType c,h,o inoremap put puts("<++>");
 autocmd FileType c,h,o inoremap sca scanf("<++>",&<++>);
-"autocmd FileType c,h,o inoremap struct #include <stdio.h><Enter>
-"autocmd FileType c,h,o inoremap paterns #include <stdio.h><Enter>
+autocmd FileType c,h,o inoremap wh while(<++>){<CR>
+            \/*cod while*/<CR>
+            \<++><CR>
+            \}
+autocmd FileType c,h,o inoremap for for(<++>;<++>;<++>){<CR>
+            \/*cod for*/<CR>
+            \<++><CR>
+            \}
+autocmd FileType c,h,o inoremap dwh do{<CR>
+            \/*cod do - while */<CR>
+            \<++><CR>
+            \}while(<++>);
 
 ""-------------------compiling & Run
 if !exists("g:gcc")
