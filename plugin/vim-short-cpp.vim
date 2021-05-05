@@ -1,7 +1,7 @@
 " ====================================================================
 " Arquivo: vim-short-cpp.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 01-05-2021
+" Ultima_modificacao: 05-05-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -18,8 +18,8 @@
 "
 "-------------------------------------------------------
 " map by Luke Smith
-inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-let maplocalleader = ","
+inoremap <Tab><Tab> <Esc>/<++><Enter>"_c4l
+let maplocalleader = '\'
 "                       -- C --      {{{
 "-------------------------------------------------------
 "Head and body frequent tags
@@ -42,6 +42,8 @@ autocmd FileType c,h,o inoremap main #include <stdio.h><Enter>
             \<++><Enter>
             \return EXIT_SUCCESS;<Enter>
             \}
+"--c-support plugin
+noremap <leader>t <leader>ntw
 
 "--  tags 
 autocmd FileType c,h,o inoremap prt printf("<++>",<++>); 
@@ -62,25 +64,27 @@ autocmd FileType c,h,o inoremap dwh do{<CR>
 
 ""-------------------compiling & Run
 if !exists("g:gcc")
+    "compilator - gcc
     let g:c_command = "gcc"
 endif
 
 function! CCompileAndBuildFile()
     silent !clear
+    exec "!mkdir" . " " . "comp"
    " %:t receive file name in the tail of path %:r remove extension
-    execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:r")
+    execute "!" . g:c_command . " " .expand("%:t") . " " . "-o" . " ". expand("%:p:h") . "/comp/". expand("%:r")
 endfunction
 
 function! CRunFile()
     silent !clear
-   "" execute "!" . g:c_command . " " . bufname("%")
-    execute "!" . "\.\/" .expand("%:r")
+   "" execute in term emulator for vim
+    execute "term ". expand("%:p:h"). "/comp/". expand("%:r")
 endfunction
 
 nnoremap <buffer> <localleader>b :call CCompileAndBuildFile()<cr>
 nnoremap <buffer> <localleader>r :call CRunFile()<cr>
 ""-------------------Specials
-" make files
+" make files... in future
 "------------------------------------------}}}
 "-------------------------------------------------------
 
