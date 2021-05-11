@@ -60,8 +60,6 @@ autocmd FileType c,h,o inoremap main #if defined(WIN32) \|\| defined(_WIN32) \|\
             \return EXIT_SUCCESS;<cr>
             \#endif<cr>
             \}
-"--c-support plugin
-noremap <leader>t <leader>ntw
 
 "--  tags 
 autocmd FileType c,h,o inoremap prt printf("<++>",<++>); 
@@ -74,7 +72,7 @@ autocmd FileType c,h,o inoremap sca scanf("<++>",&<++>);<cr>fflush(stdin);<cr>
 autocmd FileType c,h,o inoremap <leader>if if(<++>){<cr>
             \<++><cr>
             \}
-autocmd FileType c,h,o inoremap <leader>ife  if(<++>){<cr>
+autocmd FileType c,h,o inoremap <leader>ie  if(<++>){<cr>
             \<++><cr>
             \} else {<cr>
             \<++><cr>
