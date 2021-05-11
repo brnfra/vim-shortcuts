@@ -53,8 +53,6 @@ autocmd FileType c,h,o inoremap main #if defined(WIN32) \|\| defined(_WIN32) \|\
             \#if defined(WIN32) \|\| defined(_WIN32) \|\| defined(__WIN32__) \|\| defined(__NT__)<cr>
             \system("pause");
             \return (EXIT_SUCCESS);<cr>
-            \#include <locale.h><cr>
-            \setlocale(LC_ALL,"Portuguese")<cr><cr>
             \#elif __linux__<cr>
             \#define EXIT_SUCCESS 0<cr>
             \return EXIT_SUCCESS;<cr>
@@ -66,6 +64,7 @@ autocmd FileType c,h,o inoremap prt printf("<++>",<++>);
 autocmd FileType c,h,o inoremap put puts("<++>");
 
 autocmd FileType c,h,o inoremap sca scanf("<++>",&<++>);<cr>fflush(stdin);<cr>
+autocmd FileType c,h,o inoremap get gets(<++>);<cr>fflush(stdin);<cr>
            
 ""-- loops and control flux
 
