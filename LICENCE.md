@@ -1,6 +1,6 @@
 
 
-c & cpp theme copyright Bruno Franco.
+Plugin for c/c++ copyright Bruno Franco.
 
 vim-short-cpp.vim source code is licensed as follows:
 

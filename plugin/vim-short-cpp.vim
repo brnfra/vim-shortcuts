@@ -20,6 +20,7 @@
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
 let maplocalleader = ","
+
 "                       -- C --      {{{
 "-------------------------------------------------------
 "Head and body frequent tags
@@ -59,10 +60,13 @@ autocmd FileType c,h,o inoremap main #if defined(WIN32) \|\| defined(_WIN32) \|\
             \return EXIT_SUCCESS;<cr>
             \#endif<cr>
             \}
+"--c-support plugin
+noremap <leader>t <leader>ntw
 
 "--  tags 
 autocmd FileType c,h,o inoremap prt printf("<++>",<++>); 
 autocmd FileType c,h,o inoremap put puts("<++>");
+
 autocmd FileType c,h,o inoremap sca scanf("<++>",&<++>);<cr>fflush(stdin);<cr>
            
 ""-- loops and control flux
@@ -121,27 +125,34 @@ autocmd FileType c,h,o inoremap <leader>F \*<type> <name>(<parameters>)*\<cr>
             \}<cr>
 
 
+
 ""-------------------compiling & Run
 if !exists("g:gcc")
+    "compilator - gcc
     let g:c_command = "gcc"
 endif
 
 function! CCompileAndBuildFile()
     silent !clear
+    exec "!mkdir" . " " . "comp"
    " %:t receive file name in the tail of path %:r remove extension
+
     execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:r").".o"
+
 endfunction
 
 function! CRunFile()
     silent !clear
+
    "" execute "!" . g:c_command . " " . bufname("%")
     execute "!" . "\.\/" .expand("%:r").".o"
+
 endfunction
 
 nnoremap <buffer> <localleader>b :call CCompileAndBuildFile()<cr>
 nnoremap <buffer> <localleader>r :call CRunFile()<cr>
 ""-------------------Specials
-" make files
+" make files... in future
 "------------------------------------------}}}
 "-------------------------------------------------------
 
