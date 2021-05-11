@@ -31,26 +31,25 @@ autocmd FileType c,h,o inoremap #mat #include <math.h><cr>
 autocmd FileType c,h,o inoremap #def #define 
 
 " basics libraries snippet
-autocmd FileType c,h,o inoremap main #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)<cr>
+autocmd FileType c,h,o inoremap main #if defined(WIN32) \|\| defined(_WIN32) \|\|  defined(__WIN32__) \|\| defined(__NT__)<cr>
             \#include <stdio.h><cr>
             \#include <stdlib.h><cr>
             \#include <math.h><cr>
             \#include <locale.h><cr>
-            \setlocale(LC_ALL,"Portuguese")<cr><cr>
+            \setlocale(LC_ALL,"Portuguese");<cr>
             \#elif __linux__<cr>
             \#include <stdio.h><cr>
             \#include <stdlib.h><cr>
             \#include <math.h><cr>
             \#include <locale.h><cr>
-            \setlocale(LC_ALL,"Portuguese")<cr><cr>
-            \/*     Constants       */<cr>
             \#endif<cr><cr>
+            \/*     Constants       */<cr>
             \#define EXIT_SUCCESS 0<cr>
             \int main(int argc, char *argv[]) {<cr>
             \<cr>
             \/*     Your Program Here!      */<cr>
             \<++><cr>
-            \#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)<cr>
+            \#if defined(WIN32) \|\| defined(_WIN32) \|\| defined(__WIN32__) \|\| defined(__NT__)<cr>
             \system("pause");
             \return (EXIT_SUCCESS);<cr>
             \#include <locale.h><cr>
@@ -62,7 +61,7 @@ autocmd FileType c,h,o inoremap main #if defined(WIN32) || defined(_WIN32) || de
             \}
 
 "--  tags 
-autocmd FileType c,h,o inoremap prt printf("",<++>); 
+autocmd FileType c,h,o inoremap prt printf("<++>",<++>); 
 autocmd FileType c,h,o inoremap put puts("<++>");
 autocmd FileType c,h,o inoremap sca scanf("<++>",&<++>);<cr>fflush(stdin);<cr>
            
@@ -130,13 +129,13 @@ endif
 function! CCompileAndBuildFile()
     silent !clear
    " %:t receive file name in the tail of path %:r remove extension
-    execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:r").o
+    execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:r").".o"
 endfunction
 
 function! CRunFile()
     silent !clear
    "" execute "!" . g:c_command . " " . bufname("%")
-    execute "!" . "\.\/" .expand("%:r")
+    execute "!" . "\.\/" .expand("%:r").".o"
 endfunction
 
 nnoremap <buffer> <localleader>b :call CCompileAndBuildFile()<cr>
