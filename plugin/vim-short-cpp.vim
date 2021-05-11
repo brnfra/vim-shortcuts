@@ -129,21 +129,26 @@ if !exists("g:gcc")
     "compilator - gcc
     let g:c_command = "gcc"
 endif
+if !exists("g:out_folder")
+    "compilator - gcc
+    let g:out_folder = "output"
+endif
 
 function! CCompileAndBuildFile()
     silent !clear
-    exec "!mkdir" . " " . "comp"
+    exec "!mkdir" . " " . g:out_folder 
    " %:t receive file name in the tail of path %:r remove extension
 
-    execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:r").".o"
+    execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:p:h")."/".g:out_folder."/".expand("%:r").".o"
 
 endfunction
 
 function! CRunFile()
     silent !clear
-
-   "" execute "!" . g:c_command . " " . bufname("%")
-    execute "!" . "\.\/" .expand("%:r").".o"
+    silent "!"."cd ".expand("%:p:h")."/".g:out_folder."/"
+    silent !clear
+    execute "!" . "\./" .expand("%:r").".o"
+    silent "!"."cd ".expand("%:p:h")."/"
 
 endfunction
 
