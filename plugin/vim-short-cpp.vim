@@ -1,7 +1,7 @@
 " ====================================================================
 " Arquivo: vim-short-cpp.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 11-05-2021
+" Ultima_modificacao: 16-05-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -18,8 +18,12 @@
 "
 "-------------------------------------------------------
 " map by Luke Smith
-inoremap <C-Space> <Esc>/<++><cr>"_c4l
 let maplocalleader = ","
+
+inoremap <C-Space> <Esc>/<++><cr>"_c4l
+nnoremap <leader>r :!gcc % -o %:r.o && ./%:r.o<cr>
+nnoremap <buffer> <leader>b :!gcc -Wall % -o %:r.o<cr>
+
 
 "                       -- C --      {{{
 "-------------------------------------------------------
@@ -106,10 +110,10 @@ autocmd FileType c,h,o inoremap <leader>dw do{<cr>
 
 "" especials
 
-autocmd FileType c,h,o inoremap str \*struct name*\ <cr>
+autocmd FileType c,h,o inoremap <leader>st /*struct name*/ <cr>
             \struct <++><cr>
             \{<cr>
-            \\*     types and fields    *\<cr>
+            \/*     types and fields    */<cr>
             \<++><cr>
             \<cr>
             \};<cr>
@@ -123,36 +127,6 @@ autocmd FileType c,h,o inoremap <leader>F \*<type> <name>(<parameters>)*\<cr>
 
 
 
-""-------------------compiling & Run
-if !exists("g:gcc")
-    "compilator - gcc
-    let g:c_command = "gcc"
-endif
-if !exists("g:out_folder")
-    "compilator - gcc
-    let g:out_folder = "output"
-endif
-
-function! CCompileAndBuildFile()
-    silent !clear
-    exec "!mkdir" . " " . g:out_folder 
-   " %:t receive file name in the tail of path %:r remove extension
-
-    execute "!" . g:c_command . " " .expand("%:t"). " " . "-o" . " " .expand("%:p:h")."/".g:out_folder."/".expand("%:r").".o"
-
-endfunction
-
-function! CRunFile()
-    silent !clear
-    silent "!"."cd ".expand("%:p:h")."/".g:out_folder."/"
-    silent !clear
-    execute "!" . "\./" .expand("%:r").".o"
-    silent "!"."cd ".expand("%:p:h")."/"
-
-endfunction
-
-nnoremap <buffer> <localleader>b :call CCompileAndBuildFile()<cr>
-nnoremap <buffer> <localleader>r :call CRunFile()<cr>
 ""-------------------Specials
 " make files... in future
 "------------------------------------------}}}
