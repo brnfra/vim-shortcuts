@@ -1,7 +1,7 @@
 " ====================================================================
 " Arquivo: vim-short-cpp.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 16-05-2021
+" Ultima_modificacao: 19-05-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -21,8 +21,8 @@
 let maplocalleader = ","
 
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
-nnoremap <leader>r :!gcc % -o %:r.o && ./%:r.o<cr>
-nnoremap <buffer> <leader>b :!gcc -Wall % -o %:r.o<cr>
+nnoremap <localleader>r :!gcc % -o %:r.o && ./%:r.o<cr>
+nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
 
 
 "                       -- C --      {{{
