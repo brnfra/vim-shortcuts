@@ -72,7 +72,7 @@ autocmd FileType c,h,o inoremap get gets(<++>);<cr>fflush(stdin);<cr>
 autocmd FileType c,h,o inoremap fget /*aux var buff created, get <++> var from stdin*/<cr>
             \char buff[100];<cr>
             \fgets( buff , sizeof ( buff ) , stdin );<cr>
-            \\if ( 1 \!\= sscanf( buff , "\%[\^\\n]s" , <++>)){
+            \if ( 1 != sscanf( buff , "%[^\n]s" , <++>)){
             \/*validate and check*/<cr>
             \<++><cr>
             \}<cr>
