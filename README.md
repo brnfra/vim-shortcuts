@@ -7,9 +7,9 @@ Copy the file on your .vim/bundle/ folder.
 
 
 ```bash
-mkdir -p .vim/bundle/vim-short-cpp
+mkdir -p .vim/bundle/vim-shortcuts
 cd .vim/bundle/
-git clone https://github.com/brnfra/vim-short-cpp.git
+git clone https://github.com/brnfra/vim-shortcuts.git
 
 ```
 
@@ -19,7 +19,7 @@ Put this on your vimrc
 
 ```.vim
 let g:plug_url_format = 'git@github.com:%s.git'
-Plug 'brnfra/vim-short-cpp'
+Plug 'brnfra/vim-shortcuts'
 unlet g:plug_url_format
 ```
 
@@ -46,4 +46,37 @@ Examples;
 > ``` <leader>r``` to **run** to execute compiled file.
 
 ![Demo](https://github.com/brnfra/vim-short-cpp/blob/master/assets/cpp-plugin.gif)
+  
+# My tags shortcuts for Vim-HTML editing
+
+## Usage
+
+### Documentation 
+
+Just begin the tag in **insert mode** on VIM. Like described bellow;
+ 
+| Start with | Write complete tag | 
+| --- | --- |
+| \<e | \<em\> | 
+| \<u | \<u\> | 
+| \<s | \<strong\> | 
+| \<p | \<p\> | 
+| \<sp | \<span\> | 
+| \<i | \<i\> | 
+| \<b | \<b\> | 
+| \<sub | \<sub\> | 
+| \<fo | \<form\> | 
+| \<html | \<html\> | 
+| \<div | \<div\> | 
+| \<ol | \<ol\> | 
+| \<ul | \<ul\> | 
+| \<ta | \<table\> |
+| \<li | \<li\> | 
+| \<img | \<img\> | 
+| \\& | &amp; | 
+| \\< | &lt; | 
+| \\> | &gt; | 
+| \\. | &middot; | 
+
+![Demo](https://github.com/brnfra/vim-short-html/blob/master/assets/html-plugin.gif)
 
