@@ -19,12 +19,13 @@ let maplocalleader = ","
 
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
-if (&ft=='c' || &ft=='cpp')
-    " nnoremap <localleader>r :!clear && gcc % -o %:r.o && ./%:r.o<cr>
-    " nnoremap <localleader>b :!clear && gcc -Wall % -o %:r.o<cr>
-elseif (&ft=='java')
-    nnoremap <localleader>r :!clear && javac % && java %:r<cr>
-    nnoremap <localleader>b :!clear && javac %<cr>
+if (&ft=='c' || &ft=="cpp")
+    nnoremap <localleader>r :!clear && gcc % -o %:r.o && ./%:r.o<cr>
+    nnoremap <localleader>b :!clear && gcc -Wall % -o %:r.o<cr>
+elseif (&ft=="java")
+    "testing"
+    nnoremap <localleader>1 :!clear && javac % && java %:r<cr>
+    nnoremap <localleader>2 :!clear && javac %<cr>
 endif
 
 
