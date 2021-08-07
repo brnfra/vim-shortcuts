@@ -19,22 +19,23 @@ let maplocalleader = ","
 
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
+
 if (&ft=='c' || &ft=="cpp")
     nnoremap <localleader>r :!clear && gcc % -o %:r.o && ./%:r.o<cr>
     nnoremap <localleader>b :!clear && gcc -Wall % -o %:r.o<cr>
 elseif (&ft=="java")
     "testing"
-    nnoremap <localleader>1 :!clear && javac % && java %:r<cr>
-    nnoremap <localleader>2 :!clear && javac %<cr>
+    nnoremap <localleader>r :!clear && javac % && java %:r<cr>
+    nnoremap <localleader>b :!clear && javac %<cr>
 endif
 
 
 
 "-------------------------------------------------------
-"                       -- C --      {{{
+"                       -- C --      
 "-------------------------------------------------------
 "Head and body frequent tags
-autocmd Filetype c,h,o setlocal ts=4 sw=4 
+""autocmd Filetype c,h,o setlocal ts=4 sw=4 
 "-- preprocessor a once
 "autocmd FileType c,h,o inoremap #io #include <stdio.h><cr>
 autocmd FileType c,h,o inoremap #str #include <string.h><cr>
@@ -129,10 +130,8 @@ autocmd FileType c,h,o inoremap <localleader>F \*<type> <name>(<parameters>)*\<c
 " make files... in future
 "------------------------------------------}}}
 
-"           -- JAVA --      {{{
+"           -- JAVA --      
     
-nnoremap <localleader>r :!gcc % -o %:r.o && ./%:r.o<cr>
-nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
    
     
     
@@ -142,10 +141,10 @@ nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
                            
 "}}}
 
-"                       -- HTML --      {{{
+"                       -- HTML --      
 "-------------------------------------------------------
 "Head and body frequent tags
-autocmd Filetype html setlocal ts=4 sw=4 
+""autocmd Filetype html setlocal ts=4 sw=4 
 "-- body and head
 autocmd FileType html,htm,php,sxhtml,xml inoremap <html 
             \<!DOCTYPE html><Enter><html lang="pt-br"><Enter><head><Enter><!-- Required meta tags --><Enter>
@@ -211,7 +210,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap \. &middot;
 "------------------------------------------}}}
 
 "-------------------------------------------------------
-"                       -- PHP -- {{{
+"                       -- PHP -- 
 "-------------------------------------------------------
 
 " Language:	html for PHP 
