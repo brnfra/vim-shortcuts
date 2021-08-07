@@ -1,26 +1,34 @@
 " ==============================================================
-" Arquivo: 
+" Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 17-06-2021
+" Ultima_modificacao: 07-08-2021
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
 "             causados pelo uso deste arquivo.
 "
-"           _           
-"    __   _(_)_ __ ___  
-"    \ \ / / | '_ ` _ \ 
-"     \ V /| | | | | | |
-"      \_/ |_|_| |_| |_|
-"     
-
+"        _               _                _             _       
+" __   _(_)_ __ ___  ___| |__   ___  _ __| |_ ___ _   _| |_ ___ 
+" \ \ / / | '_ ` _ \/ __| '_ \ / _ \| '__| __/ __| | | | __/ __|
+"  \ V /| | | | | | \__ \ | | | (_) | |  | || (__| |_| | |_\__ \
+"   \_/ |_|_| |_| |_|___/_| |_|\___/|_|   \__\___|\__,_|\__|___/
+"            
+"
 "-------------------------------------------------------
 let maplocalleader = ","
 
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
-nnoremap <localleader>r :!gcc % -o %:r.o && ./%:r.o<cr>
-nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
+if (&ft=='c' || &ft=='cpp')
+    nnoremap <localleader>r :!gcc % -o %:r.o && ./%:r.o<cr>
+    nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
+endif
+if (&ft=='java')
+    nnoremap <localleader>r :!javac % && java ./%:r.class<cr>
+    nnoremap <localleader>b :!javac %<cr>
+endif
+
+
 
 "-------------------------------------------------------
 "                       -- C --      {{{
@@ -121,8 +129,19 @@ autocmd FileType c,h,o inoremap <localleader>F \*<type> <name>(<parameters>)*\<c
 " make files... in future
 "------------------------------------------}}}
 
+"           -- JAVA --      {{{
+    
+nnoremap <localleader>r :!gcc % -o %:r.o && ./%:r.o<cr>
+nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
+   
+    
+    
+    
+    
+    
+                           
+"}}}
 
-"-------------------------------------------------------
 "                       -- HTML --      {{{
 "-------------------------------------------------------
 "Head and body frequent tags
