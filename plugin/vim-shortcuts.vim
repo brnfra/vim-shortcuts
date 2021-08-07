@@ -24,7 +24,7 @@ if (&ft=='c' || &ft=='cpp')
     nnoremap <localleader>b :!gcc -Wall % -o %:r.o<cr>
 endif
 if (&ft=='java')
-    nnoremap <localleader>r :!javac % && java ./%:r.class<cr>
+    nnoremap <localleader>r :!javac % && java ./%:r<cr>
     nnoremap <localleader>b :!javac %<cr>
 endif
 
