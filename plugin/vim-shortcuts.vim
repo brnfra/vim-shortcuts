@@ -21,7 +21,7 @@
 "  \ V /| | | | | | \__ \ | | | (_) | |  | || (__| |_| | |_\__ \
 "   \_/ |_|_| |_| |_|___/_| |_|\___/|_|   \__\___|\__,_|\__|___/
 "            
-"
+"https://vimhelp.org/usr_41.txt.html#write-plugin
 "-------------------------------------------------------
 
 
@@ -41,6 +41,12 @@ augroup JavaBuild
     au FileType java nnoremap <buffer> <leader>b :!clear && javac %<cr>
 
     "javafx"
+    au FileType java nnoremap <buffer> <leader>x :!clear &&
+		\ javac --module-path $PATH_TO_FX --add-modules javafx.controls % &&
+		\ java --module-path $PATH_TO_FX --add-modules javafx.controls %:r<cr>
+    au FileType java nnoremap <buffer> <leader>c :!clear && 
+		\ javac --module-path $PATH_TO_FX --add-modules javafx.controls %<cr> 
+
 
 augroup END
 
