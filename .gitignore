@@ -8,3 +8,4 @@ assets/
 
 # any image files
 *.gif
+/doc/tags
