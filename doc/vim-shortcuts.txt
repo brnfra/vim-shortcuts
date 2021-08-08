@@ -1,0 +1,18 @@
+*vim-shortcuts.txt*  Plugin for insert snippets in source files
+
+Just add some shortcuts to make ease end faster to build and run programs
+in java, c, html and php and add some snippets to functions, loops and
+more.
+
+There are currently only a few corrections.  Add your own if you like.
+                                                *vim-shortcuts-maps*
+  					     	
+Mappings:
+<Leader>r   to build and run;
+<Leader>b   to build;
+        Add a correction for the word under the cursor.
+
+ 
+                                                *vim-shortcuts-settings*
+This plugin doesn't have any settings.
+
