@@ -6,7 +6,15 @@
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
 "             causados pelo uso deste arquivo.
-"
+" 
+" Vim global plugin for write my personal snippets for;
+" 
+"   - java
+"   - c
+"   - cpp
+"   - php
+"   - html 
+" 
 "        _               _                _             _       
 " __   _(_)_ __ ___  ___| |__   ___  _ __| |_ ___ _   _| |_ ___ 
 " \ \ / / | '_ ` _ \/ __| '_ \ / _ \| '__| __/ __| | | | __/ __|
@@ -15,19 +23,26 @@
 "            
 "
 "-------------------------------------------------------
-let maplocalleader = ","
+
 
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
 
-if (&ft=='c' || &ft=="cpp")
-    nnoremap <localleader>r :!clear && gcc % -o %:r.o && ./%:r.o<cr>
-    nnoremap <localleader>b :!clear && gcc -Wall % -o %:r.o<cr>
-elseif (&ft=="java")
-    "testing"
-    nnoremap <localleader>r :!clear && javac % && java %:r<cr>
-    nnoremap <localleader>b :!clear && javac %<cr>
-endif
+augroup CBuild
+
+    au FileType c,h,o nnoremap <buffer> <leader>r :!clear && gcc % -o %:r.o && ./%:r.o<cr>
+    au FileType c,h,o nnoremap <buffer> <leader>b :!clear && gcc -Wall % -o %:r.o<cr>
+
+augroup END
+
+augroup JavaBuild
+    "java"
+    au FileType java nnoremap <buffer> <leader>r :!clear && javac % && java %:r<cr>
+    au FileType java nnoremap <buffer> <leader>b :!clear && javac %<cr>
+
+    "javafx"
+
+augroup END
 
 
 
@@ -73,16 +88,16 @@ autocmd FileType c,h,o inoremap fget /*aux var buff created, get <++> var from s
            
 ""-- loops and control flux
 
-autocmd FileType c,h,o inoremap <localleader>if if(<++>){<cr>
+autocmd FileType c,h,o inoremap <leader>if if(<++>){<cr>
             \<++><cr>
             \}
-autocmd FileType c,h,o inoremap <localleader>ie  if(<++>){<cr>
+autocmd FileType c,h,o inoremap <leader>ie  if(<++>){<cr>
             \<++><cr>
             \} else {<cr>
             \<++><cr>
             \}<cr>
 
-autocmd FileType c,h,o inoremap <localleader>s switch (<++>)<cr>
+autocmd FileType c,h,o inoremap <leader>s switch (<++>)<cr>
             \{<cr>
             \case <++>: <cr>
             \<++>;<cr>
@@ -99,19 +114,19 @@ autocmd FileType c,h,o inoremap <localleader>s switch (<++>)<cr>
             \}<cr>
 
 
-autocmd FileType c,h,o inoremap <localleader>f for(<++>;<++>;<++>){<cr>
+autocmd FileType c,h,o inoremap <leader>f for(<++>;<++>;<++>){<cr>
             \<++><cr>
             \}<cr>
-autocmd FileType c,h,o inoremap <localleader>w while(<++>){<cr>
+autocmd FileType c,h,o inoremap <leader>w while(<++>){<cr>
             \<++><cr>
             \}<cr>
-autocmd FileType c,h,o inoremap <localleader>dw do{<cr>
+autocmd FileType c,h,o inoremap <leader>dw do{<cr>
             \<++><cr>
             \}while(<++>);<cr>
 
 "" especials
 
-autocmd FileType c,h,o inoremap <localleader>st /*struct name*/ <cr>
+autocmd FileType c,h,o inoremap <leader>st /*struct name*/ <cr>
             \struct <++><cr>
             \{<cr>
             \/*     types and fields    */<cr>
@@ -121,7 +136,7 @@ autocmd FileType c,h,o inoremap <localleader>st /*struct name*/ <cr>
 
 "" functions
 
-autocmd FileType c,h,o inoremap <localleader>F \*<type> <name>(<parameters>)*\<cr>
+autocmd FileType c,h,o inoremap <leader>F \*<type> <name>(<parameters>)*\<cr>
             \<++> <++>(<++>,<++>){<cr>
             \<++><cr>
             \}<cr>
@@ -131,13 +146,21 @@ autocmd FileType c,h,o inoremap <localleader>F \*<type> <name>(<parameters>)*\<c
 "------------------------------------------}}}
 
 "           -- JAVA --      
-    
+
+"Main"
+autocmd FileType java inoremap main public static void main(String[] args){\<cr>
+            \<cr>
+            \<++><cr>
+	    \<cr>
+            \}<cr>
+
+"class"   <c-r> o prox char é um registro
+autocmd FileType java inoremap class public class <c-r>=expand("%:r")<cr>{<cr>
+            \<cr>
+            \<++><cr>
+	    \<cr>
+            \}<cr>
    
-    
-    
-    
-    
-    
                            
 "}}}
 
@@ -212,14 +235,6 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap \. &middot;
 "-------------------------------------------------------
 "                       -- PHP -- 
 "-------------------------------------------------------
-
-" Language:	html for PHP 
-" Modificado: Bruno do nascimento Franco - <devlabbr@outlook.com>
-" Ultima_modificao: Qui 20 Fev 2020 13:02:46 BRT
-" Download: https://github.com/brnfra/web
-" Licence: Licença: Este arquivo é de domínio público
-" Garantia: O autor não se responsabiliza por eventuais danos
-"           causados pelo uso deste arquivo.
 
 " OriginalfilefromMaintainer:	Lutz Eymers <ixtab@polzin.com>
 " URL:	          https://aurelio.net/vim/php3.vim  	
