@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 07-08-2021
+" Ultima_modificacao: 04-04-2022
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -24,10 +24,10 @@
 "https://vimhelp.org/usr_41.txt.html#write-plugin
 "-------------------------------------------------------
 
-
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
 
+" --- Compile builds --- {{{
 augroup CBuild
 
     au FileType c,h,o nnoremap <buffer> <leader>r :!clear && gcc % -o %:r.o && ./%:r.o<cr>
@@ -50,11 +50,8 @@ augroup JavaBuild
 
 augroup END
 
-
-
-"-------------------------------------------------------
-"                       -- C --      
-"-------------------------------------------------------
+"  }}}"
+"                       -- C --  {{{
 "Head and body frequent tags
 ""autocmd Filetype c,h,o setlocal ts=4 sw=4 
 "-- preprocessor a once
@@ -150,8 +147,7 @@ autocmd FileType c,h,o inoremap <leader>F \*<type> <name>(<parameters>)*\<cr>
 ""-------------------Specials
 " make files... in future
 "------------------------------------------}}}
-
-"           -- JAVA --      
+"           -- JAVA --{{{      
 
 "Main"
 autocmd FileType java inoremap main public static void main(String[] args){\<cr>
@@ -168,9 +164,8 @@ autocmd FileType java inoremap class public class <c-r>=expand("%:r")<cr>{<cr>
             \}<cr>
    
                            
-"}}}
-
-"                       -- HTML --      
+"		}}}
+"                       -- HTML --{{{      
 "-------------------------------------------------------
 "Head and body frequent tags
 ""autocmd Filetype html setlocal ts=4 sw=4 
@@ -190,8 +185,8 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <html
 autocmd FileType html,htm,php,sxhtml,xml inoremap <e <em></em><esc>4hi 
 autocmd FileType html,htm,php,sxhtml,xml inoremap <u <u></u><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <s <strong></strong><esc>8hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <p <p id="<++>" class="<++>" style="<++>"><++></p><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <sp <span id="<++>" class="<++>" style="<++>"><++></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <p <p><++></p><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <sp <span><++></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
 autocmd FileType html,htm,php,sxhtml,xml inoremap <i <i></i><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <b <b></b><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <sub <sub></sub><esc>5hi
@@ -204,9 +199,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <h2 <h2></h2><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h3 <h3></h3><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h4 <h4></h4><esc>4hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <h5 <h5></h5><esc>4hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="<++>" class="<++>"><++></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
-
-autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div id="<++>" class="<++>" style="<++>"><++></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml inoremap <di <div><++></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
 
 
 "Form
@@ -224,7 +217,7 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <ul <ul type="<++>"></ul><esc>
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 
 "Table
-autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="<++>" width="<++>" style="<++>"></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
+autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="<++>" width="<++>"></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
             \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
             \<th></th><esc>4hi[Column1]<esc>o<esc>i<th></th><esc>4hi[Column2]<esc>o<esc>i<th></th><esc>4hi[Column3]<esc>
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
@@ -236,11 +229,8 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap \< &lt;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \> &gt;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \. &middot;
 
-"------------------------------------------}}}
-
-"-------------------------------------------------------
-"                       -- PHP -- 
-"-------------------------------------------------------
+"------------------------------------------ }}}
+"                       -- PHP -- {{{ 
 
 " OriginalfilefromMaintainer:	Lutz Eymers <ixtab@polzin.com>
 " URL:	          https://aurelio.net/vim/php3.vim  	
@@ -695,4 +685,6 @@ endif
 
 " vim: ts=8
 "
-"------------------------------------------}}}
+"------------------------------------------
+" }}}
+"
