@@ -1,18 +1,146 @@
 *vim-shortcuts.txt*  Plugin for insert snippets in source files
 
 Just add some shortcuts to make ease end faster to build and run programs
-in java, c, html and php and add some snippets to functions, loops and
+in java, c, html, php and markdown. Add some snippets to functions, loops and
 more.
 
 There are currently only a few corrections.  Add your own if you like.
                                                 *vim-shortcuts-maps*
-  					     	
 Mappings:
-<Leader>r   to build and run;
-<Leader>b   to build;
-        Add a correction for the word under the cursor.
 
- 
+<Leader><leader>		search pattern <++> to add text;
+
+						*compile-builds-c-pp*			     	
+Mappings:
+
+<Leader>r			to build and run;
+<Leader>b			to build;
+
+						*c-pp-snippets*			     	
+Mappings:
+
+#str				#include <string.h>	
+#mat				#include <math.h>
+#def				#define
+main				add main snippet
+prt				printf("<++>",<++>);
+put				puts("<++>");
+sca				scanf("<++>",&<++>);<cr>fflush(stdin);
+get				gets(<++>);<cr>fflush(stdin);
+fget			        fget snippet		
+<leader>if			if only, snippet
+<leader>ie			if / else snippet
+<leader>s			switch / case snippet
+<leader>f			for snippet
+<leader>w			while snippet
+<leader>dw			do / while snippet
+<leader>st			struct snippet
+<leader>F			function snippet
+
+						*compile-builds-java*
+Mappings:
+
+<Leader>r			to compile javac and run;
+<Leader>b			only build;
+<Leader>x			to compile add module $PATH_TO_FX and javafx.controls and run;
+<Leader>c			to compile add module $PATH_TO_FX and javafx.controls and build;
+
+						*java-snippets*			     	
+Mappings:
+
+main				main snippet	
+class				class snippet	
+
+						*HTML-snippets*
+Mappings:
+
+<html				file snippet
+e				<em></em> 
+<u				<u></u>
+<str				<strong></strong>
+<scr				<script></script>
+<p				<p><++></p>
+<sp				<span><++></span>
+<i				<i></i>
+<b				<b></b>
+<sub				<sub></sub>
+<sup				<sup></sup>
+<u				<u></u>
+<abr				<abbr></abbr>   
+<h1				<h1></h1>
+<h2 				<h2></h2>
+<h3 				<h3></h3>
+<h4 				<h4></h4>
+<h5 				<h5></h5>
+<di 				<div><++></div>
+<fo 				form snippet
+<ol				ordened list snippet 
+<li 				<li></li>     
+<ul 				unordened list snippet 
+<li 				<li></li><esc>4hi      
+<ta 				table snippet 
+<li 				<li></li>      
+<img				<img > 
+\&				&amp;
+\< 				&lt;
+\> 				&gt;
+\. 				&middot;
+
+						*PHP-snippets*
+Mappings:
+
+<?				php body snippet 
+
+						*Markdown-snippets*
+Mappings:
+
+`				`````` 
+*   				**
+**  				****
+_   				__
+__  				____
+~~  				~~~~
+++  				++++
+==  				====
+--  				---
+3#  				###
+2#  				##
+<!  				<!---->
+<leader>t			table snippet
+\n				<br>
+!i 				add image snippet
+!l 				add link snippet
+^^ 				footnote snippet
+:: 				::::::
+\& 				&amp; 
+\< 				&lt;
+\> 				&gt;
+\+ 				&nbsp;
+<u 				<u></u>
+<s 				<strong></strong>
+<p 				paragraph snippet
+<sp				span snippet
+<i 				<i></i>
+<b 				<b></b>
+<sub				<sub></sub>
+<sup 				<sup></sup><
+<u				<u></u>
+<abr				<abbr></abbr>   
+<h1				<h1><++></h1>
+<h2 				<h2><++></h2>
+<h3 				<h3><++></h3>
+<h4 				<h4><++></h4>
+<h5 				<h5><++></h5>
+<di 				div snippet 
+<ol 				ordened list snippet
+<li 				<li></li>      
+<ul 				uordened list
+<li 				<li></li>      
+<ta 				table snippet
+<li 				<li></li>
+<am 				<amd></amd>      
+
+						
                                                 *vim-shortcuts-settings*
 This plugin doesn't have any settings.
 
