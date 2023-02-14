@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 04-04-2022
+" Ultima_modificacao: 14-02-2023
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -26,6 +26,7 @@
 
 " map by Luke Smith
 inoremap <C-Space> <Esc>/<++><cr>"_c4l
+nnoremap <C-Space> <Esc>/<++><cr>"_c4l
 
 " --- Compile builds --- {{{
 augroup CBuild
@@ -177,14 +178,16 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <html
             \<meta http-equiv="X-UA-Compatible" content="IE-edge"><Enter><Enter>
             \<!--Opcional--><Enter>
             \<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><Enter>
-            \<link rel="stylesheet" type="text/css" href="<++>"><Enter>
-            \<script type="text/javascript" src="meuArquivo.js"></script><Enter>
-            \<title>Meu Site</title><Enter></head><Enter><body><Enter><Enter><Enter></body><Enter></html>
+            \<link rel="stylesheet" type="text/css" href="style.css"><Enter>
+            \<title>My Site</title><Enter></head><Enter><body><Enter><Enter><Enter>
+            \<script type="text/javascript" src="app.js"></script><Enter>
+	    \</body><Enter></html>
 
 "--  tags
 autocmd FileType html,htm,php,sxhtml,xml inoremap <e <em></em><esc>4hi 
 autocmd FileType html,htm,php,sxhtml,xml inoremap <u <u></u><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml inoremap <s <strong></strong><esc>8hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <str <strong></strong><esc>8hi
+autocmd FileType html,htm,php,sxhtml,xml inoremap <scr <script></script><esc>8hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <p <p><++></p><esc>3hi
 autocmd FileType html,htm,php,sxhtml,xml inoremap <sp <span><++></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
 autocmd FileType html,htm,php,sxhtml,xml inoremap <i <i></i><esc>3hi
@@ -219,11 +222,11 @@ autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi
 "Table
 autocmd FileType html,htm,php,sxhtml,xml inoremap <ta <table border="<++>" width="<++>"></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
             \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
-            \<th></th><esc>4hi[Column1]<esc>o<esc>i<th></th><esc>4hi[Column2]<esc>o<esc>i<th></th><esc>4hi[Column3]<esc>
+            \<th></th><esc>4hi<++>[Head1]<esc>o<esc>i<th></th><esc>4hi<++>[Head2]<esc>o<esc>i<th></th><esc>4hi<++>[Head3]<esc>
 autocmd FileType html,htm,php,sxhtml,xml inoremap <li <li></li><esc>4hi      
 autocmd FileType html,htm,php,sxhtml,xml inoremap <img <img src="<++>" alt="description_file"> 
 
-"<++>"-------------------Specials
+"-------------------Specials
 autocmd FileType html,htm,php,sxhtml,xml inoremap \& &amp;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \< &lt;
 autocmd FileType html,htm,php,sxhtml,xml inoremap \> &gt;
