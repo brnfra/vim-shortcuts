@@ -1,9 +1,10 @@
-# My tags shortcuts for Vim-C/C++ editing
+# Shortcuts and Snippets for edit Vim files
 
+This plugin is only a collection of snippets and shortcuts for editing **c, java, html, php and markdown** files. Nothing more. In fact, it's just a key binding collection.
 
 ## Installation
 
-Copy the file on your .vim/bundle/ folder.
+Copy the folder on your .vim/bundle/ folder.
 
 
 ```bash
@@ -27,9 +28,10 @@ unlet g:plug_url_format
 
 ### Documentation 
 
-Just begin edit the files ```.c ``` in **insert mode** on VIM . Like described bellow. 
-This plugin is for unix based systems. But may can change for windows platform.
-Using gcc compiler for run and build this. Others compilers will be add in future.
+ 
+Just begin edit the files ```.c, .java, .html, .php or .markdown ``` in **insert mode** on VIM . Like described bellow. 
+This plugin is for unix based systems. 
+Using gcc or javac compiler for run and build this. Others compilers will be add in future.
 
 Examples;
 
