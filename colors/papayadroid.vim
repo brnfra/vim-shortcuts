@@ -47,10 +47,11 @@ hi StatusLineNC                                                 guibg=Gray
 hi VertSplit                                                    guibg=Gray
 
 "hi Special          term=none   ctermfg=red         cterm=bold  guifg=Red       gui=bold
-hi SpecialChar      term=none   ctermfg=red         cterm=bold  guifg=Red       gui=bold
-hi SpecialComment   term=none   ctermfg=red         cterm=bold  guifg=Red       gui=bold
-hi Tag           term=none   ctermfg=10         cterm=bold  guifg=Green       gui=bold
-hi Delimiter     term=none   ctermfg=2         cterm=bold  guifg=DarkGreen       gui=bold
+hi SpecialChar      term=none   ctermfg=red         cterm=bold  guifg=Red           gui=bold
+hi SpecialComment   term=none   ctermfg=red         cterm=bold  guifg=Red           gui=bold
+hi Tag              term=none   ctermfg=10          cterm=bold  guifg=Green         gui=bold
+hi Title            term=none   ctermfg=2           cterm=bold  guifg=DArkGreen     gui=bold
+hi Delimiter        term=none   ctermfg=2           cterm=bold  guifg=DarkGreen     gui=bold
 hi SpecialKey	                                                guifg=Brown
 
 "hi Identifier       term=bold   ctermfg=DarkRed     cterm=bold  guifg=#755e00   gui=bold
@@ -70,3 +71,14 @@ hi PreCondit        term=bold   ctermfg=DarkGreen   cterm=bold,italic  guifg=#75
 
 hi Type             term=bold   ctermfg=DarkGreen   cterm=none  guifg=#4c008f   gui=italic
 hi Directory        term=none	ctermfg=cyan        cterm=none  guifg=cyan      gui=italic
+
+"----------------------------------------------------------------
+hi VimwikiHeader1 term=none  cterm=bold  ctermfg=0   guifg=#000FFD  gui=bold 
+hi VimwikiHeader2 term=none  cterm=bold  ctermfg=0   guifg=#000379  gui=bold
+hi VimwikiHeader3 term=none  cterm=bold  ctermfg=0   guifg=#aa0000  gui=bold
+hi VimwikiH1Folding  term=bold  cterm=bold  ctermfg=204  guifg=#e5c07b gui=bold 
+hi VimwikiH2Folding  term=bold  cterm=bold  ctermfg=204  guifg=#98c379 gui=bold
+hi VimwikiH3Folding  term=bold  cterm=bold  ctermfg=204  guifg=#c678dd gui=bold
+hi VimwikiLink  term=bold  cterm=italic  ctermfg=204  guifg=#00655D gui=italic
+hi VimwikiBold  term=bold  cterm=bold  ctermfg=204  guifg=#E06C75 gui=bold
+
