@@ -45,8 +45,8 @@ hi Function         term=bold   ctermfg=DarkRed     cterm=bold  guifg=#755e00   
 
 hi Error            term=bold   ctermbg=Yellow ctermfg=Red cterm=bold,italic  guifg=red  guibg=yellow gui=underline
 
-hi Statement        term=bold   ctermfg=5         cterm=bold  guifg=DarkMagenta       gui=bold
-hi Operator         term=bold   ctermfg=1   cterm=bold  guifg=DarkBlue      gui=bold
+hi Statement        term=bold   ctermfg=5   cterm=bold  guifg=DarkMagenta   gui=bold
+hi Operator         term=bold   ctermfg=DarkRed   cterm=none  guifg=DarkRed      gui=none
 hi Keyword          term=bold   ctermfg=2   cterm=bold  guifg=DarkGreen     gui=bold
 hi Repeat           term=bold   ctermfg=3   cterm=bold  guifg=DarkCyan      gui=bold
 hi Conditional      term=bold   ctermfg=5   cterm=bold  guifg=DarkMagenta   gui=bold
