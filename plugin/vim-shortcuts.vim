@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 14-02-2023
+" Ultima_modificacao: 22-02-2024
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -25,6 +25,37 @@
 "-------------------------------------------------------
 inoremap <leader><leader> <Esc>/<++><cr>"_c4l
 nnoremap <leader><leader> /<++><cr>"_c4l
+
+"function ConvertMarkdownTitlesoVimwikiTitles()
+"   /\<###\><cr> 
+"endfunction
+function! ConvertMarkdownTitlestoVimwikiTitles()
+    for line_num in range(1, line('$'))
+        " Obtém o conteúdo da linha
+        let line = getline(line_num)
+        " Faz a substituição se a linha contiver o padrão
+        if line =~ '### \(\w\+\s\+\)*\w\+'
+            let new_line = substitute(line, '### \(\(\w\+\s\+\)*\w\+\)', '=== \1 ===', '')
+            " Atualiza a linha no arquivo e \1 texto cap. no parentese
+            call setline(line_num, new_line)
+        elseif line =~ '## \(\w\+\s\+\)*\w\+'
+            let new_line = substitute(line, '## \(\(\w\+\s\+\)*\w\+\)', '== \1 ==', '')
+            call setline(line_num, new_line)
+        elseif line =~ '# \(\w\+\s\+\)*\w\+'
+            let new_line = substitute(line, '# \(\(\w\+\s\+\)*\w\+\)', '= \1 =', '')
+            call setline(line_num, new_line)
+        endif
+         if line =~ '\*\*\(\w\+\s\+\)*\w\+\*\*'
+             let new_line = substitute(line, '\*\*\(\(\w\+\s\+\)*\w\+\)\*\*', '\*\1\*', '')
+             call setline(line_num, new_line)
+         endif
+        if line =~ '__\(\w\+\s\+\)*\w\+__'
+            let new_line = substitute(line, '__\(\(\w\+\s\+\)*\w\+\)__', '_\1_', '')
+            call setline(line_num, new_line)
+        endif
+    endfor
+
+endfunction
 
 " --- Compile builds --- {{{
 augroup CBuild
