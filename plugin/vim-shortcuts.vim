@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 22-02-2024
+" Ultima_modificacao: 23-02-2024
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -25,6 +25,15 @@
 "-------------------------------------------------------
 inoremap <leader><leader> <Esc>/<++><cr>"_c4l
 nnoremap <leader><leader> /<++><cr>"_c4l
+
+    " Percorre cada linha selecionada da selecao
+function! SurroundQuotes()
+    " Obtém os num das linhas corrente 
+    let line_num = line(".")
+    let line = getline(line_num)
+    let new_line = substitute(line, ".*" , "'&'", '')
+    call setline(line_num, new_line)
+endfunction
 
 "function ConvertMarkdownTitlesoVimwikiTitles()
 "   /\<###\><cr> 
