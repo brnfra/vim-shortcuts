@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 25-02-2024
+" Ultima_modificacao: 26-02-2024
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -46,26 +46,41 @@ function! ConvertMarkdownTitlestoVimwikiTitles()
         if line =~ '### \(\w\+\s\+\)*\w\+'
             let new_line = substitute(line, '### ', '', '')
 	    let new_line = substitute(new_line, '.*', '=== & ===', '')
-            " Atualiza a linha no arquivo e \1 texto cap. no parentese
             call setline(line_num, new_line)
         elseif line =~ '## \(\w\+\s\+\)*\w\+'
             let new_line = substitute(line, '## ', '', '')
-            let new_line = substitute(line, '.*', '== & ==', '')
+            let new_line = substitute(new_line, '.*', '== & ==', '')
             call setline(line_num, new_line)
         elseif line =~ '# \(\w\+\s\+\)*\w\+'
             let new_line = substitute(line, '# ', '', '')
-            let new_line = substitute(line, '.*', '= & =', '')
+            let new_line = substitute(new_line, '.*', '= & =', '')
             call setline(line_num, new_line)
 	endif
-        
-	if line =~ '\*\*\(\w\+\s\+\)*\w\+\*\*'
-             let new_line = substitute(line, '\*\*\(\(\w\+\s\+\)*\w\+\)\*\*', '\*\1\*', '')
-             call setline(line_num, new_line)
-         endif
-        if line =~ '__\(\w\+\s\+\)*\w\+__'
-            let new_line = substitute(line, '__\(\(\w\+\s\+\)*\w\+\)__', '_\1_', '')
+	if line =~ '```'
+	    let new_line = substitute(line, '```', '`', 'g')
+            call setline(line_num, new_line)
+	endif
+	if line =~ '\*\*\*'
+	    let new_line = substitute(line, '\*\*\*\+', '\*', 'g')
+            call setline(line_num, new_line)
+	endif
+	if line =~ '\*\*'
+	    let new_line = substitute(line, '\*\*', '\*', 'g')
+            call setline(line_num, new_line)
+	endif
+
+        if line =~ '__'
+            let new_line = substitute(line, '__', '_', 'g')
             call setline(line_num, new_line)
         endif
+        if line =~ '___'
+            let new_line = substitute(line, '___\+', '_', 'g')
+            call setline(line_num, new_line)
+        endif
+	""if line =~ '| \(\w\+\s\+\)*\w\+ |'
+	 ""  VimwikiTableAlignQ
+	   "VimwikiTableAlignW
+	""endif
     endfor
 
 endfunction
