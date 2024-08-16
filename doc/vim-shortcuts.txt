@@ -1,11 +1,21 @@
-*vim-shortcuts.txt*  Plugin for insert snippets in source files
+*vim-shortcuts.txt*  		Plugin for insert snippets in source files
 
 Just add some shortcuts to make ease end faster to build and run programs
 in java, c, html, php and markdown. Add some snippets to functions, loops and
 more.
 
 There are currently only a few corrections.  Add your own if you like.
-                                                *vim-shortcuts-maps*
+						*vim-shortcuts-functions*
+SurroundQuotes()
+				Execute :call SurroundQuotes() to surround line
+				with single quotes
+
+ConvertMarkdownTitlestoVimwikiTitles()
+				Execute :call ConvertMarkdownTitlestoVimwikiTitles()
+				to convert titles and subtitles and markdown signs to
+				vimwiki patterns
+
+						*vim-shortcuts-maps*
 Mappings:
 
 <Leader><leader>		search pattern <++> to add text;
