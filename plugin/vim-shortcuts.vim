@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 26-02-2024
+" Ultima_modificacao: 17-08-2024
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -60,6 +60,10 @@ function! ConvertMarkdownTitlestoVimwikiTitles()
 	    let new_line = substitute(line, '```', '`', 'g')
             call setline(line_num, new_line)
 	endif
+	if line =~ '``'
+	    let new_line = substitute(line, '``', '`', 'g')
+            call setline(line_num, new_line)
+	endif
 	if line =~ '\*\*\*'
 	    let new_line = substitute(line, '\*\*\*\+', '\*', 'g')
             call setline(line_num, new_line)
@@ -77,10 +81,6 @@ function! ConvertMarkdownTitlestoVimwikiTitles()
             let new_line = substitute(line, '___\+', '_', 'g')
             call setline(line_num, new_line)
         endif
-	""if line =~ '| \(\w\+\s\+\)*\w\+ |'
-	 ""  VimwikiTableAlignQ
-	   "VimwikiTableAlignW
-	""endif
     endfor
 
 endfunction
