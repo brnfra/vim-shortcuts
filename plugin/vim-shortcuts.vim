@@ -25,8 +25,55 @@
 "-------------------------------------------------------
 inoremap <leader><leader> <Esc>/<++><cr>"_c4l
 nnoremap <leader><leader> /<++><cr>"_c4l
-
-    " Percorre cada linha selecionada da selecao
+"""ToggleHidden by @LukeSmithxyz"{{{
+let s:hidden_all = 1 
+function ToggleHidden()
+    if s:hidden_all == 0
+	let s:hidden_all = 1
+	set number
+	set ruler
+	set relativenumber
+	set laststatus=2
+	set list
+    else
+	let s:hidden_all = 0
+	set nonumber
+	set noruler
+	set norelativenumber
+	set laststatus=0
+	set nolist
+    endif
+endfunction
+"}}}
+"""ToggleFold"{{{
+let s:fold_all = 1 
+function ToggleFold()
+    if s:fold_all == 0
+	let s:fold_all = 1
+	:%foldclose!
+    else
+	let s:fold_all = 0
+	:%foldopen!
+    endif
+endfunction
+""}}}
+"""ToggleCreateFold"{{{
+function ToggleCreateFold()
+    if foldclosed(".") < 0
+	let s:make_fold = 0
+	:'<,'>fold
+    else
+	:normal zd
+    endif
+endfunction
+""}}}
+""OneLineAllText{{{
+function OneLineAllText()
+    :%j
+endfunction    
+""}}}
+" SurroundQuotes{{{
+" Percorre cada linha selecionada da selecao
 function! SurroundQuotes()
     " Obtém os num das linhas corrente 
     let line_num = line(".")
@@ -34,8 +81,8 @@ function! SurroundQuotes()
     let new_line = substitute(line, ".*" , "'&'", '')
     call setline(line_num, new_line)
 endfunction
-
-"function ConvertMarkdownTitlesoVimwikiTitles()
+" "}}}
+" ConvertMarkdownTitlesoVimwikiTitles() {{{
 "   /\<###\><cr> 
 "endfunction
 function! ConvertMarkdownTitlestoVimwikiTitles()
@@ -84,7 +131,127 @@ function! ConvertMarkdownTitlestoVimwikiTitles()
     endfor
 
 endfunction
+" "}}}
+"                       -- Markdown  --{{{
+"-------------------------------------------------------
 
+" Visual surroundings
+inoremap <localleader>/ </<C-X><C-O>
+nnoremap <silent> vi" ?"<CR><space>v/"<CR><BS>
+nnoremap <silent> vi' ?'<CR><space>v/'<CR><BS>
+nnoremap <silent> vi` ?`<CR><space>v/`<CR><BS>
+nnoremap <silent> va" ?"<CR>v/"<CR>
+nnoremap <silent> va' ?'<CR>v/'<CR>
+nnoremap <silent> va` ?`<CR>v/`<CR>
+" Delete
+nnoremap <silent> di" ?"<CR><space>v/"<CR><BS>d
+nnoremap <silent> di' ?'<CR><space>v/'<CR><BS>d
+nnoremap <silent> di` ?`<CR><space>v/`<CR><BS>d
+nnoremap <silent> da" ?"<CR>v/"<CR>d
+nnoremap <silent> da' ?'<CR>v/'<CR>d
+nnoremap <silent> da` ?`<CR>v/`<CR>d
+" Change
+nnoremap <silent> ci" ?"<CR><space>v/"<CR><BS>c
+nnoremap <silent> ci' ?'<CR><space>v/'<CR><BS>c
+nnoremap <silent> ci` ?`<CR><space>v/`<CR><BS>c
+nnoremap <silent> ca" ?"<CR>v/"<CR>c
+nnoremap <silent> ca' ?'<CR>v/'<CR>c
+nnoremap <silent> ca` ?`<CR>v/`<CR>c
+
+""surround "" ou '' ss or SS for surround special chars"
+"only words s or "S
+nnoremap <S-s> bcw''<esc>P
+nnoremap <S-s>S bcw""<esc>P
+nnoremap ** <esc>bcw**<esc>Pi
+nnoremap __ <esc>bcw__<esc>Pi
+nnoremap == <esc>bcw==<esc>Pi
+"''"all line"''
+nnoremap <S-a> 0i'<esc>$i<Right>'<esc>
+nnoremap <S-a>A 0i"<esc>$i<Right>"<esc>
+nnoremap <S-b>B <esc>0i*<esc>$i<Right>*<esc>
+nnoremap <S-i>I <esc>0i_<esc>$i<Right>_<esc>
+nnoremap <S-t>T <esc>0i=<esc>$i<Right>=<esc>
+"Problem when no words
+vnoremap " c""<ESC><ESC>hp
+vnoremap ' c''<ESC><ESC>hp
+"only words s or S
+inoremap ** <esc>bcw**<esc>Pi
+inoremap __ <esc>bcw__<esc>Pi
+inoremap == <esc>bcw==<esc>Pi
+"''""all line"''
+inoremap <localleader>' <esc>0i'<esc>$i<Right>'<esc>i
+inoremap <localleader>" <esc>0i"<esc>$i<Right>"<esc>i
+inoremap <S-b>B <esc>0i*<esc>$i<Right>*<esc>i
+inoremap <S-i>I <esc>0i_<esc>$i<Right>_<esc>i
+inoremap <S-t>T <esc>0i=<esc>$i<Right>=<esc>i
+
+
+autocmd Filetype markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt setlocal ts=8 sw=4 
+""markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt 
+
+"--  autocompletes
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt vnoremap ` c``<esc>hp 
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt vnoremap * c**<esc>hp
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,RMd,txt vnoremap ~ c~~~~<esc>2hp
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,RMd,txt vnoremap ^ c^^<esc>hp
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,RMd,txt vnoremap , c,,,,<esc>2hp
+"vimwiki conflict
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt vnoremap + c++<esc>hp
+"comment"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <! <!----><esc>2hi
+"tables
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <leader>t "<Char-0x7c>"<++>h1"<Char-0x7c>"<++>h2"<Char-0x7c>"<Enter>
+            \"<Char-0x7c>"---"<Char-0x7c>"---"<Char-0x7c>"<Enter>
+            \"<Char-0x7c>"<++>c1"<Char-0x7c>"<++>c2"<Char-0x7c>"<esc>v2k0:s/"/ /g<CR>2li
+"line"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \n <br>
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap !i ![<++>ImgDscr](<++>link_Img)
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap !l [<++>LnkDscr](<++>link_add)
+"footnote"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap ^^ <!--Footnote 1-->link1[^<!--link1-->]<cr>[^<!--link1-->]:<!--Footnote_description--><esc>i
+"custom container"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap :: ::::::<esc>2hi
+"Specials
+"&"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \& &amp; 
+"<>"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \< &lt;
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \> &gt;
+"no-break space"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \+ &nbsp;
+"html utils HTML tags"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <u <u></u><esc>3hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <s <strong></strong><esc>8hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <p <p id="" class="" style=""></p><esc>3hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <sp <span id="" class="" style=""></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <i <i></i><esc>3hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <b <b></b><esc>3hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <sub <sub></sub><esc>5hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <sup <sup></sup><esc>5hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <u <u></u><esc>3hi
+"Spam definition
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <abr <abbr></abbr><esc>6hi   
+"Subjects highlights "
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h1 <h1><++></h1><esc>4hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h2 <h2><++></h2><esc>4hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h3 <h3><++></h3><esc>4hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h4 <h4><++></h4><esc>4hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h5 <h5><++></h5><esc>4hi
+"div"
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <di <div id="<++>" class="<++>" style="<++>"></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
+"Ordened List
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <ol <ol type="<++>"></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <li <li></li><esc>4hi      
+"UnOrdened List
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <ul <ul type="<++>"></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <li <li></li><esc>4hi      
+"Table
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <ta <table border="<++>" width="<++>"></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
+            \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
+            \<th></th><esc>4hi<++>Col1<esc>o<esc>i<th></th><esc>4hi<++>Col2<esc>o<esc>i<th></th><esc>4hi<++>Col3<esc>
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <li <li></li><esc>4hi
+autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <am <amd></amd><esc>5hi      
+"                       }}}
 " --- Compile builds --- {{{
 augroup CBuild
 
@@ -296,77 +463,4 @@ let php_minlines = 500
 autocmd FileType php inoremap <? <?php<esc>2o<esc>i?><esc>ki            
 
 " }}}
-"                       -- Markdown  --{{{
-"-------------------------------------------------------
-"
-autocmd Filetype markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt setlocal ts=8 sw=4 
-""markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt 
-
-"--  autocompletes
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap ` ``````<esc>2hi 
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap * **<esc>i
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap ** ****<esc>hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap _ __<esc>i
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap __ ____<esc>hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap ~~ ~~~~<esc>hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap ++ ++++<esc>hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap == ====<esc>hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap -- ---
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap 3# ###
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap 2# ##
-"comment"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <! <!----><esc>2hi
-"tables
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <leader>t "<Char-0x7c>"head1"<Char-0x7c>"head2"<Char-0x7c>"<Enter>
-            \"<Char-0x7c>"---"<Char-0x7c>"---"<Char-0x7c>"<Enter>
-            \"<Char-0x7c>"<++>cell1"<Char-0x7c>"<++>cell2"<Char-0x7c>"<esc>v2k0:s/"/ /g<CR>2li
-"line"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \n <br>
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap !i ![<++>ImgDscr](<++>link_Img)
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap !l [<++>LnkDscr](<++>link_add)
-"footnote"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap ^^ <!--Footnote 1-->link1[^<!--link1-->]<cr>[^<!--link1-->]:<!--Footnote_description--><esc>i
-"custom container"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap :: ::::::<esc>2hi
-"Specials
-"&"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \& &amp; 
-"<>"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \< &lt;
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \> &gt;
-"no-break space"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap \+ &nbsp;
-"html utils HTML tags"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <u <u></u><esc>3hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <s <strong></strong><esc>8hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <p <p id="" class="" style=""></p><esc>3hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <sp <span id="" class="" style=""></span><esc>v6hx2o<esc>p0<esc>==<esc>ki
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <i <i></i><esc>3hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <b <b></b><esc>3hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <sub <sub></sub><esc>5hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <sup <sup></sup><esc>5hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <u <u></u><esc>3hi
-"Spam definition
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <abr <abbr></abbr><esc>6hi   
-"Subjects highlights "
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h1 <h1><++></h1><esc>4hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h2 <h2><++></h2><esc>4hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h3 <h3><++></h3><esc>4hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h4 <h4><++></h4><esc>4hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <h5 <h5><++></h5><esc>4hi
-"div"
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <di <div id="<++>" class="<++>" style="<++>"></div><esc>v5hx2o<esc>p0<esc>==<esc>ki
-"Ordened List
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <ol <ol type="<++>"></ol><esc>v4hx2o<esc>p0<esc>==<esc>ki
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <li <li></li><esc>4hi      
-"UnOrdened List
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <ul <ul type="<++>"></ul><esc>v4hx2o<esc>p0<esc>==<esc>ki
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <li <li></li><esc>4hi      
-"Table
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <ta <table border="<++>" width="<++>"></table><esc>v7hx2o<esc>p0<esc>==<esc>k>>i
-            \<tr></tr><esc>v4hx2o<esc>p0<esc>==<esc>ki
-            \<th></th><esc>4hi<++>Col1<esc>o<esc>i<th></th><esc>4hi<++>Col2<esc>o<esc>i<th></th><esc>4hi<++>Col3<esc>
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <li <li></li><esc>4hi
-autocmd FileType markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt inoremap <am <amd></amd><esc>5hi      
-"                       }}}
 
