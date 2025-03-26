@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # log file
 log
 
@@ -8,3 +9,17 @@ assets/
 
 # any image files
 *.gif
+||||||| empty tree
+=======
+# log file
+log
+
+# Assets folder
+assets/
+*/assets
+*/assets/*
+
+# any image files
+*.gif
+/doc/tags
+>>>>>>> origin/master
