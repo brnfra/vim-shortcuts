@@ -75,3 +75,6 @@ hi shDerefVarArray  term=bold   cterm=bold  guifg=DarkGreen   gui=italic
 hi shDeref          term=bold   cterm=bold  guifg=DarkRed     gui=italic
 hi shDerefOp        term=bold   cterm=bold  guifg=Brown       gui=italic
 
+" coc-vim
+hi CocMenuSel       ctermfg=15 ctermbg=2 guibg=NvimDarkGrey1 guifg=LightGreen                                            
+hi CocSearch        ctermfg=15 guifg=#15aabf 
