@@ -1,6 +1,6 @@
 " Arquivo: papayadroid.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 29-03-2025
+" Ultima_modificacao: 03-04-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -13,9 +13,23 @@ endif
 let g:colors_name = "papayadroid"
 
 
-hi Normal           cterm=none ctermbg=Gray    ctermfg=Black   guifg=#3f1f1f   	guibg=#fff0c2
-hi NonText          cterm=none              ctermfg=Brown   guifg=Brown     	guibg=#d4c7a1
-hi LineNr           cterm=none guibg=#d4c7a1
+hi Normal           cterm=none 	     ctermbg=Gray    ctermfg=Black   guifg=#3f1f1f   	guibg=#fff0c2
+hi NonText          cterm=none       ctermfg=Brown      guifg=Brown     	guibg=#d4c7a1
+hi LineNr           cterm=none 	     guibg=#d4c7a1
+hi Cursor           cterm=none       ctermfg=White ctermbg=Brown guibg=#5c0053  guifg=#dbdbdb
+hi CursorColumn     guibg=LightGrey                                                                  
+hi CursorLine       guibg=LightGrey                                                                  
+hi ColorColumn      cterm=reverse guibg=LightGrey                                                    
+
+" for error highlight
+hi clear 		SpellBad
+hi SpellBad 		cterm=standout ctermfg=1 term=underline cterm=underline
+hi clear SpellCap
+hi SpellCap	 	cterm=underline cterm=underline
+hi clear 		SpellRare
+hi SpellRare 		cterm=underline
+hi clear SpellLocal
+hi SpellLocal 		cterm=underline 
 
 hi Comment          cterm=italic    guifg=DarkGreen      			gui=italic
 "hi Constant             cterm=italic guifg=#7300ff gui=italic

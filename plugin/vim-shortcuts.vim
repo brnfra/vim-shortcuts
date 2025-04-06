@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 17-08-2024
+" Ultima_modificacao: 04-04-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -132,6 +132,19 @@ function! ConvertMarkdownTitlestoVimwikiTitles()
 
 endfunction
 " "}}}
+"--------------------------------------------------------------------------- 
+" Tip #382: Search for <cword> and replace with input() in all open buffers 
+"--------------------------------------------------------------------------- 
+"Replace{{{
+nnoremap <leader>r :call Replace()<CR>
+vnoremap <leader>r :call Replace()<CR>
+fun! Replace() 
+    let s:word = input("Replace " . expand('<cword>') . " with:") 
+    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
+    :unlet! s:word 
+endfun 
+""}}}
+
 "                       -- Markdown  --{{{
 "-------------------------------------------------------
 

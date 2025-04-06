@@ -1,7 +1,7 @@
 " ====================================================================
 " Arquivo: vim-short-cpp.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 11-05-2021
+" Ultima_modificacao: 04-04-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -150,7 +150,7 @@ function! CRunFile()
 endfunction
 
 nnoremap <buffer> <localleader>b :call CCompileAndBuildFile()<cr>
-nnoremap <buffer> <localleader>r :call CRunFile()<cr>
+nnoremap <buffer> <localleader>e :call CRunFile()<cr>
 ""-------------------Specials
 " make files... in future
 "------------------------------------------}}}
