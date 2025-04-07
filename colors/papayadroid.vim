@@ -1,6 +1,6 @@
 " Arquivo: papayadroid.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 03-04-2025
+" Ultima_modificacao: 06-04-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -73,7 +73,7 @@ hi PreCondit        cterm=bold   ctermfg=DarkGreen   cterm=bold,italic  guifg=#7
 hi Type             cterm=bold   ctermfg=DarkGreen   cterm=none  guifg=#4c008f   gui=italic
 hi Directory        cterm=none   ctermfg=Brown    cterm=none  guifg=Brown      gui=italic
 
-"----------------------------------------------------------------
+""----------------------------------------------------------------
 hi VimwikiHeader1    cterm=none  cterm=bold   ctermfg=0   guifg=#000FFD  gui=bold
 hi VimwikiHeader2    cterm=none  cterm=bold   ctermfg=0   guifg=#000379  gui=bold
 hi VimwikiHeader3    cterm=none  cterm=bold   ctermfg=0   guifg=#aa0000  gui=bold
@@ -83,6 +83,14 @@ hi VimwikiH3Folding  cterm=bold  cterm=bold   ctermfg=204  guifg=#c678dd gui=bol
 hi VimwikiLink       cterm=bold  cterm=italic ctermfg=204  guifg=#00655D gui=italic
 hi VimwikiBold       cterm=bold  cterm=bold   ctermfg=204  guifg=#fe0000 gui=bold
 hi VimwikiBoldItalic cterm=bold  cterm=bold   ctermfg=204  guifg=#ae0000 gui=bold
+"----------------------------------------------------------------
+hi default link WhichKey          Function
+hi default link WhichKeySeperator DiffAdded
+hi default link WhichKeyGroup     Keyword
+hi default link WhichKeyDesc      Identifier
+hi default link WhichKeyFloating  Pmenu
+
+"----------------------------------------------------------------
 
 hi shDerefSpecial   cterm=bold   cterm=bold  guifg=DarkYellow  gui=italic
 hi shDerefVar       cterm=bold   cterm=bold  guifg=DarkGrey    gui=italic
@@ -91,5 +99,6 @@ hi shDeref          cterm=bold   cterm=bold  guifg=DarkRed     gui=italic
 hi shDerefOp        cterm=bold   cterm=bold  guifg=Brown       gui=italic
 
 " coc-vim
+hi CocFloating      ctermbg=DarkGrey  
 hi CocMenuSel       ctermfg=15 ctermbg=2 guibg=DarkGrey guifg=LightGreen
 hi CocSearch        ctermfg=15 guifg=#15aabf

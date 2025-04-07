@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 04-04-2025
+" Ultima_modificacao: 06-04-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -144,7 +144,6 @@ fun! Replace()
     :unlet! s:word 
 endfun 
 ""}}}
-
 "                       -- Markdown  --{{{
 "-------------------------------------------------------
 
