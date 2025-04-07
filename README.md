@@ -1,4 +1,4 @@
-# Shortcuts and Snippets for edit Vim files
+# Shortcuts and Snippets for edition with Vim
 
 This plugin is only a collection of snippets and shortcuts for editing **c, java, html, php and markdown** files. Nothing more. In fact, it's just a key binding collection.
 
