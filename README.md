@@ -1,6 +1,7 @@
 # Shortcuts and Snippets for edition with Vim
 
-This plugin is only a collection of snippets and shortcuts for editing **c, java, html, php and markdown** files. Nothing more. In fact, it's just a key binding collection.
+This plugin is only a collection of snippets and shortcuts for editing **c, java, html, php and markdown** files. Nothing more. In fact, it's just a key
+snippets collection.
 
 ## Installation
 
@@ -25,59 +26,51 @@ unlet g:plug_url_format
 ```
 
 ## Usage
-
-### Documentation 
-
  
-Just begin edit the files ```.c, .java, .html, .php or .markdown ``` in **insert mode** on VIM . Like described bellow. 
-This plugin is for unix based systems. 
+When in *INSERT MODE* for the files ```.c, .java, .html, .php or .markdown ``` in **insert mode** on VIM . Like described bellow. 
 Using gcc or javac compiler for run and build this. Others compilers will be add in future.
+Here we are using abbrev from vim(check :help iabbrev)
 
-Examples;
+Then when you type key-word(for example [html]) insert the non-keyword character(usually *<Space>* ou *<ESC>*)
 
-| Start with | Write complete tag |
-| --- | --- |
-| prt | printf("<++>",<++>); |
-| puts | puts("<++>"); |
-| sca | scanf("<++>",&<++>); |
-|main | basic structure on unix for c lang |
-
-- Maps 
+## Maps 
 
 > ``` <leader>b``` to **build**  output has the same name.
 > ``` <leader>r``` to **run** to execute compiled file.
 
-![Demo](https://github.com/brnfra/vim-short-cpp/blob/master/assets/cpp-plugin.gif)
-  
-# My tags shortcuts for Vim-HTML editing
+## Tags for shortcuts in Vim editing
 
-## Usage
-
-### Documentation 
-
-Just begin the tag in **insert mode** on VIM. Like described bellow;
+Depends of file type. Example for _html_ files.
+Just begin the tag in **insert mode** on VIM. Like described bellow, use `[TAG] + non-keyword`;
  
-| Start with | Write complete tag | 
-| --- | --- |
-| \<e | \<em\> | 
-| \<u | \<u\> | 
-| \<s | \<strong\> | 
-| \<p | \<p\> | 
-| \<sp | \<span\> | 
-| \<i | \<i\> | 
-| \<b | \<b\> | 
-| \<sub | \<sub\> | 
-| \<fo | \<form\> | 
-| \<html | \<html\> | 
-| \<div | \<div\> | 
-| \<ol | \<ol\> | 
-| \<ul | \<ul\> | 
-| \<ta | \<table\> |
-| \<li | \<li\> | 
-| \<img | \<img\> | 
-| \\& | &amp; | 
-| \\< | &lt; | 
-| \\> | &gt; | 
-| \\. | &middot; | 
-
-![Demo](https://github.com/brnfra/vim-short-html/blob/master/assets/html-plugin.gif)
+| Tags    | Write snippet |
+| ---     | ---           |
+| [html]  | html snippet  |
+| [table] | table sni     |
+| [!]     | comment       |
+| [a]     | a             |
+| [em]    | em            |
+| [u]     | u             |
+| [st]    | strong        |
+| [sc]    | script        |
+| [p]     | p             |
+| [span]  | span          |
+| [i]     | i             |
+| [b]     | b             |
+| [sub]   | sub           |
+| [u]     | u             |
+| [sup]   | sup           |
+| [form]  | form>         |
+| [abr]   | abbr          |
+| [h1]    | header 1      |
+| [h2]    | header 2      |
+| [h3]    | header 3      |
+| [h4]    | header 4      |
+| [h5]    | header 5      |
+| [div]   | div           |
+| [amd]   | amd           |
+| [php]   | php code      |
+| [&]     | &amp;         |
+| [<]     | &lt;          |
+| [>]     | &gt;          |
+| [.]     | &middot;      |
