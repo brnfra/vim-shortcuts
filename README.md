@@ -31,7 +31,7 @@ When in *INSERT MODE* for the files ```.c, .java, .html, .php or .markdown ``` i
 Using gcc or javac compiler for run and build this. Others compilers will be add in future.
 Here we are using abbrev from vim(check :help iabbrev)
 
-Then when you type key-word(for example [html]) insert the non-keyword character(usually *<Space>* ou *<ESC>*)
+Then when you type key-word(for example [html]) insert the non-keyword character(usually _\<Space\>_ or _\<ESC\>_)
 
 ## Maps 
 
