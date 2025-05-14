@@ -43,34 +43,34 @@ Then when you type key-word(for example [html]) insert the non-keyword character
 Depends of file type. Example for _html_ files.
 Just begin the tag in **insert mode** on VIM. Like described bellow, use `[TAG] + non-keyword`;
  
-| Tags    | Write snippet |
-| ---     | ---           |
-| [html]  | html snippet  |
-| [table] | table sni     |
-| [!]     | comment       |
-| [a]     | a             |
-| [em]    | em            |
-| [u]     | u             |
-| [st]    | strong        |
-| [sc]    | script        |
-| [p]     | p             |
-| [span]  | span          |
-| [i]     | i             |
-| [b]     | b             |
-| [sub]   | sub           |
-| [u]     | u             |
-| [sup]   | sup           |
-| [form]  | form>         |
-| [abr]   | abbr          |
-| [h1]    | header 1      |
-| [h2]    | header 2      |
-| [h3]    | header 3      |
-| [h4]    | header 4      |
-| [h5]    | header 5      |
-| [div]   | div           |
-| [amd]   | amd           |
-| [php]   | php code      |
-| [&]     | &amp;         |
-| [<]     | &lt;          |
-| [>]     | &gt;          |
-| [.]     | &middot;      |
+| Tags    | Write snippet for Tag |
+| ---     | ---                   |
+| [html]  | <html>...             |
+| [table] | <table>...            |
+| [!]     | comment               |
+| [a]     | <a>...                |
+| [u]     | <u>...                |
+| [em]    | <em>...               |
+| [st]    | <strong>...           |
+| [sc]    | <script>...           |
+| [p]     | <p>...                |
+| [span]  | <span>...             |
+| [i]     | <i>...                |
+| [b]     | <b>...                |
+| [sub]   | <sub>...              |
+| [u]     | <u>...                |
+| [sup]   | <sup>...              |
+| [form]  | <form>...             |
+| [abr]   | <abbr>...             |
+| [h1]    | header 1              |
+| [h2]    | header 2              |
+| [h3]    | header 3              |
+| [h4]    | header 4              |
+| [h5]    | header 5              |
+| [div]   | <div>...              |
+| [amd]   | <amd>...              |
+| [php]   | php code              |
+| [&]     | &amp;                 |
+| [<]     | &lt;                  |
+| [>]     | &gt;                  |
+| [.]     | &middot;              |
