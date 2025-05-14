@@ -15,10 +15,51 @@ ConvertMarkdownTitlestoVimwikiTitles()
 				to convert titles and subtitles and markdown signs to
 				vimwiki patterns
 
+Replace()
+				:Replace [word_to] : current cursor word to replace in
+				document
+
+ToggleHidden()			
+				Toggle to show number, ruler, relativenumber, list
+				
+ToggleFold()	
+				Toggle to fold
+
+ToggleCreateFold()
+				Toggle selected fold
+
+OneLineAllText()
+				Set all text to only one line
+
+SurroundQuotes()
+				Surround quotes selected text
+
 						*vim-shortcuts-maps*
 Mappings:
 
 <Leader><leader>		search pattern <++> to add text;
+<Leader>r			replace word in document;
+
+nnoremap <S-s> 		single quote only word 
+nnoremap <S-s>S 	double quote only word
+nnoremap ** 		surround by * only word
+nnoremap __ 		surround by _ only word
+nnoremap == 		surround by = only word
+
+nnoremap <S-a> 		single quote only word
+nnoremap <S-a>A 	double quote only word
+nnoremap <S-b>B 	surround by * only word
+nnoremap <S-i>I 	surround by _ only word
+nnoremap <S-t>T 	surround by = only word
+
+vnoremap " 		double quote only selection 
+vnoremap ' 		single quote only selection
+
+inoremap <localleader>' single quote line	
+inoremap <localleader>" double quote line	
+inoremap <S-b>B 	surround by * line	
+inoremap <S-i>I 	surround by _ line	
+inoremap <S-t>T 	surround by = line 	
 
 						*compile-builds-c-pp*			     	
 Mappings:
@@ -27,25 +68,25 @@ Mappings:
 <Leader>b			to build;
 
 						*c-pp-snippets*			     	
-Mappings:
+Tags:
 
-#str				#include <string.h>	
-#mat				#include <math.h>
-#def				#define
-main				add main snippet
-prt				printf("<++>",<++>);
-put				puts("<++>");
-sca				scanf("<++>",&<++>);<cr>fflush(stdin);
-get				gets(<++>);<cr>fflush(stdin);
-fget			        fget snippet		
-<leader>if			if only, snippet
-<leader>ie			if / else snippet
-<leader>s			switch / case snippet
-<leader>f			for snippet
-<leader>w			while snippet
-<leader>dw			do / while snippet
-<leader>st			struct snippet
-<leader>F			function snippet
+[#str]				#include <string.h>	
+[#mat]				#include <math.h>
+[#def]				#define
+[main]				add main snippet
+[print]				printf("<++>",<++>);
+[put]				puts("<++>");
+[scanf]				scanf("<++>",&<++>);<cr>fflush(stdin);
+[get]				gets(<++>);<cr>fflush(stdin);
+[fget]			        fget snippet		
+[if]     			if only, snippet
+[ifelse]			if / else snippet
+[switch				switch / case snippet
+[for]				for snippet
+[while]				while snippet
+[dowhile]			do / while snippet
+[struct]			struct snippet
+[function]			function snippet
 
 						*compile-builds-java*
 Mappings:
@@ -55,51 +96,51 @@ Mappings:
 <Leader>x			to compile add module $PATH_TO_FX and javafx.controls and run;
 <Leader>c			to compile add module $PATH_TO_FX and javafx.controls and build;
 
-						*java-snippets*			     	
+						*java-maps*			     	
 Mappings:
 
-main				main snippet	
-class				class snippet	
+Tags						*java-snippets*
+
+[main]				main snippet	
+[class]				class snippet	
 
 						*HTML-snippets*
 Mappings:
 
-<html				file snippet
-e				<em></em> 
-<u				<u></u>
-<str				<strong></strong>
-<scr				<script></script>
-<p				<p><++></p>
-<sp				<span><++></span>
-<i				<i></i>
-<b				<b></b>
-<sub				<sub></sub>
-<sup				<sup></sup>
-<u				<u></u>
-<abr				<abbr></abbr>   
-<h1				<h1></h1>
-<h2 				<h2></h2>
-<h3 				<h3></h3>
-<h4 				<h4></h4>
-<h5 				<h5></h5>
-<di 				<div><++></div>
-<fo 				form snippet
-<ol				ordened list snippet 
-<li 				<li></li>     
-<ul 				unordened list snippet 
-<li 				<li></li><esc>4hi      
-<ta 				table snippet 
-<li 				<li></li>      
-<img				<img > 
-\&				&amp;
-\< 				&lt;
-\> 				&gt;
-\. 				&middot;
+[html]				file snippet
+[em]				<em></em> 
+[u]				<u></u>
+[st]				<strong></strong>
+[sc]				<script></script>
+[p]				<p><++></p>
+[span]				<span><++></span>
+[i]				<i></i>
+[b]				<b></b>
+[sub]				<sub></sub>
+[sup]				<sup></sup>
+[u]				<u></u>
+[abr]				<abbr></abbr>   
+[h1]				<h1></h1>
+[h2]				<h2></h2>
+[h3]				<h3></h3>
+[h4]				<h4></h4>
+[h5]				<h5></h5>
+[div]				<div><++></div>
+[form]				form snippet
+[olist]				ordened list snippet 
+[item]				list item     
+[ulist]				unordened list snippet 
+[ta]				table snippet 
+[img]				imgage snippet 
+[&]				&amp;
+[<]				&lt;
+[>]				&gt;
+[.]				&middot;
 
 						*PHP-snippets*
 Mappings:
 
-<?				php body snippet 
+[php]				php body snippet 
 
 						*Markdown-snippets*
 Mappings:
@@ -122,33 +163,6 @@ __  				____
 !l 				add link snippet
 ^^ 				footnote snippet
 :: 				::::::
-\& 				&amp; 
-\< 				&lt;
-\> 				&gt;
-\+ 				&nbsp;
-<u 				<u></u>
-<s 				<strong></strong>
-<p 				paragraph snippet
-<sp				span snippet
-<i 				<i></i>
-<b 				<b></b>
-<sub				<sub></sub>
-<sup 				<sup></sup><
-<u				<u></u>
-<abr				<abbr></abbr>   
-<h1				<h1><++></h1>
-<h2 				<h2><++></h2>
-<h3 				<h3><++></h3>
-<h4 				<h4><++></h4>
-<h5 				<h5><++></h5>
-<di 				div snippet 
-<ol 				ordened list snippet
-<li 				<li></li>      
-<ul 				uordened list
-<li 				<li></li>      
-<ta 				table snippet
-<li 				<li></li>
-<am 				<amd></amd>      
 
 						
                                                 *vim-shortcuts-settings*

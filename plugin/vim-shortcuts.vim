@@ -171,26 +171,25 @@ nnoremap <silent> ca' ?'<Enter>v/'<Enter>c
 nnoremap <silent> ca` ?`<Enter>v/`<Enter>c
 
 ""surround "" ou '' ss or SS for surround special chars"
-"only words s or "S
+"words s or "S
 nnoremap <S-s> bcw''<esc>P
 nnoremap <S-s>S bcw""<esc>P
 nnoremap ** <esc>bcw**<esc>Pi
 nnoremap __ <esc>bcw__<esc>Pi
 nnoremap == <esc>bcw==<esc>Pi
-"''"all line"''
+
+"line
 nnoremap <S-a> 0i'<esc>$i<Right>'<esc>
 nnoremap <S-a>A 0i"<esc>$i<Right>"<esc>
 nnoremap <S-b>B <esc>0i*<esc>$i<Right>*<esc>
 nnoremap <S-i>I <esc>0i_<esc>$i<Right>_<esc>
 nnoremap <S-t>T <esc>0i=<esc>$i<Right>=<esc>
+
 "Problem when no words
 vnoremap " c""<ESC><ESC>hp
 vnoremap ' c''<ESC><ESC>hp
-"only words s or S
-inoremap ** <esc>bcw**<esc>Pi
-inoremap __ <esc>bcw__<esc>Pi
-inoremap == <esc>bcw==<esc>Pi
-"''""all line"''
+
+"line
 inoremap <localleader>' <esc>0i'<esc>$i<Right>'<esc>i
 inoremap <localleader>" <esc>0i"<esc>$i<Right>"<esc>i
 inoremap <S-b>B <esc>0i*<esc>$i<Right>*<esc>i
