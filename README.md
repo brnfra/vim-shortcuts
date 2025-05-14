@@ -45,30 +45,30 @@ Just begin the tag in **insert mode** on VIM. Like described bellow, use `[TAG] 
  
 | Tags    | Write snippet for Tag |
 | ---     | ---                   |
-| [html]  | <html>...             |
-| [table] | <table>...            |
+| [html]  | \<html\>...             |
+| [table] | \<table\>...            |
 | [!]     | comment               |
-| [a]     | <a>...                |
-| [u]     | <u>...                |
-| [em]    | <em>...               |
-| [st]    | <strong>...           |
-| [sc]    | <script>...           |
-| [p]     | <p>...                |
-| [span]  | <span>...             |
-| [i]     | <i>...                |
-| [b]     | <b>...                |
-| [sub]   | <sub>...              |
-| [u]     | <u>...                |
-| [sup]   | <sup>...              |
-| [form]  | <form>...             |
-| [abr]   | <abbr>...             |
+| [a]     | \<a\>...                |
+| [u]     | \<u\>...                |
+| [em]    | \<em\>...               |
+| [st]    | \<strong\>...           |
+| [sc]    | \<script\>...           |
+| [p]     | \<p\>...                |
+| [span]  | \<span\>...             |
+| [i]     | \<i\>...                |
+| [b]     | \<b\>...                |
+| [sub]   | \<sub\>...              |
+| [u]     | \<u\>...                |
+| [sup]   | \<sup\>...              |
+| [form]  | \<form\>...             |
+| [abr]   | \<abbr\>...             |
 | [h1]    | header 1              |
 | [h2]    | header 2              |
 | [h3]    | header 3              |
 | [h4]    | header 4              |
 | [h5]    | header 5              |
-| [div]   | <div>...              |
-| [amd]   | <amd>...              |
+| [div]   | \<div\>...              |
+| [amd]   | \<amd\>...              |
 | [php]   | php code              |
 | [&]     | &amp;                 |
 | [<]     | &lt;                  |
