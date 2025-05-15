@@ -429,32 +429,33 @@ autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,m
 "--  tags
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [a] <a href="<++>"> <++> </a> 
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [em] <em> <++> </em> 
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [u] <u> <++> </u><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [st] <strong> <++> </strong><esc>8hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sc] <script> <++> </script><esc>8hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [p] <p> <++> </p><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [span] <span> <++> </span><esc>v6hx2o<esc>p0<esc>==<esc>ki
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [i] <i> <++> </i><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [b] <b> <++> </b><esc>3hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sub] <sub> <++> </sub><esc>5hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sup] <sup> <++> </sup><esc>5hi
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [u] <u> <++> </u><esc>3hi
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [u] <u> <++> </u>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [st] <strong> <++> </strong>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sc] <script> <++> </script>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [p] <p> <++> </p>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [span] <span> <++> </span>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [i] <i> <++> </i>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [b] <b> <++> </b>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sub] <sub> <++> </sub>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sup] <sup> <++> </sup>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [u] <u> <++> </u>
 "Spam definition
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [abr] <abbr> <++> </abbr><esc>6hi   
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [abr] <abbr> <++> </abbr>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h1] <h1> <++> </h1>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h2] <h2> <++> </h2>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h3] <h3> <++> </h3>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h4] <h4> <++> </h4>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h5] <h5> <++> </h5>
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [div] <div> <++> </div><esc>v5hx2o<esc>p0<esc>==<esc>ki
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [amd] <amd> <++> </amd><esc>v5hx2o<esc>p0<esc>==<esc>ki
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [div] <div> <++> </div>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [amd] <amd> <++> </amd>
 
 
 "Form
-autocmd FileType html,htm,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [form] <form action="<++>" method="<++>" style="<++>"></form><esc>v6hx2o<esc>p0<esc>==<esc>ki
-            \<label for="[name]">[Say Label]</label><br><esc>o
-            \<input type="<++>" id="<++>" class="<++>" value="<++>"><br><esc>o
-            \<input type="submit" id="<++>" class="<++>" value="[Submit]"><br><esc>ki
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [form] <form action="<++>" method="<++>" style="<++>"><CR>
+            \	<label for="[name]">[Say Label]</label><br><CR>
+            \	<input type="<++>" id="<++>" class="<++>" value="<++>"><br><CR>
+            \	<input type="submit" id="<++>" class="<++>" value="String"><br><CR>
+	    \ </form><CR>
 
 "Ordened List
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [olist] <ol type="<++>"><CR>
