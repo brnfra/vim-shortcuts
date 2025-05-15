@@ -420,7 +420,7 @@ autocmd FileType html,htm,php,sxhtml,xml iabbrev [html] <Enter>
             \<meta http-equiv="X-UA-Compatible" content="IE-edge"><Enter><Enter>
             \<!--Opcional--><Enter>
             \<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><Enter>
-            \<link rel="stylesheet" type="text/css" href="style.css"><Enter>
+            \<link rel="stylesheet" href="css/style.css"><Enter>
             \<title>My Site</title><Enter></head><Enter><body><Enter><++><Enter><Enter>
             \<script type="text/javascript" src="app.js"></script><Enter>
 	    \</body><Enter></html>
