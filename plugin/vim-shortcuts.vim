@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 14-05-2025
+" Ultima_modificacao: 16-05-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -427,13 +427,13 @@ autocmd FileType html,htm,php,sxhtml,xml iabbrev [html] <Enter>
 "add a comment
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [!] <!-- <++> --> 
 "--  tags
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [a] <a href="<++>"> <++> </a> 
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [a] <a class="<++>"  href="<++>"> <++> </a> 
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [em] <em> <++> </em> 
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [u] <u> <++> </u>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [st] <strong> <++> </strong>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sc] <script> <++> </script>
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [p] <p> <++> </p>
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [span] <span> <++> </span>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [p] <p class="<++>" > <++> </p>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [span] <span class="<++>" > <++> </span>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [i] <i> <++> </i>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [b] <b> <++> </b>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [sub] <sub> <++> </sub>
@@ -446,28 +446,31 @@ autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,m
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h3] <h3> <++> </h3>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h4] <h4> <++> </h4>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [h5] <h5> <++> </h5>
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [div] <div> <++> </div>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [div] <div class="<++>" > <++> </div>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [amd] <amd> <++> </amd>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [var] <var> <++> </var>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [kbd] <kbd> <++> </kbd>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [code] <code> <++> </code>
 
 
 "Form
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [form] <form action="<++>" method="<++>" style="<++>"><CR>
-            \	<label for="[name]">[Say Label]</label><br><CR>
-            \	<input type="<++>" id="<++>" class="<++>" value="<++>"><br><CR>
+            \	<label for="foo">Foo: </label><br><CR>
+            \	<input name="foo" type="<++>" id="<++>" class="<++>" value="<++>"><br><CR>
             \	<input type="submit" id="<++>" class="<++>" value="String"><br><CR>
 	    \ </form><CR>
 
 "Ordened List
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [olist] <ol type="<++>"><CR>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [olist] <ol class="<++>"  type="<++>"><CR>
 	\ <li> <++> </li><CR>
 	\ </ol>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [item] <li> <++> </li>      
 
 "UnOrdened List
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [ulist] <ul type="<++>"> <++> </ul>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [ulist] <ul class="<++>"  type="<++>"> <++> </ul>
 
 "Table
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [table] <table border="<++>" width="<++>"><CR>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [table] <table class="table" border="<++>" width="<++>"><CR>
 	    \ <caption> <CR><!-- Describe the table --><CR></caption>
 	    \ <thead><CR>
 	    \ 	<tr><CR>
@@ -494,8 +497,12 @@ autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,m
 	    \ </tfoot><CR>
 	    \</table><CR>
 
-
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [img] <img src="<++>" alt="describe_the_file"> 
+"-------------------images
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [img] <img class="<++>"  src="<++>" alt="describe_the_file"> 
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [fig] <figure class="figure"><CR>
+	    \	<img class="figure-img"  src="<++>" alt="describe_the_file"><CR>
+	    \	<figcaption class="figure-caption">Image description subtitle.</figcaption><CR>
+	    \</figure>
 
 "-------------------Specials
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [&] &amp;
@@ -508,7 +515,5 @@ autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,m
 "                      -- PHP -- {{{ 
 
 let php_minlines = 500
-autocmd FileType php iabbrev [php] <?php <++> ?>            
-
+autocmd FileType php iabbrev [php] <?php <++> ?>
 " }}}
-
