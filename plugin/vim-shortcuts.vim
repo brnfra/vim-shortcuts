@@ -1,7 +1,7 @@
 " ==============================================================
 " Arquivo: vim-shortcuts.vim
 " Autor: Bruno Franco
-" Ultima_modificacao: 16-05-2025
+" Ultima_modificacao: 17-05-2025
 " Download: git@github.com:brnfra
 " Licence:Este arquivo é de domínio público
 " Garantia: O autor não se responsabiliza por eventuais danos
@@ -456,22 +456,52 @@ autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,m
 "Form
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [form] <form action="<++>" method="<++>" style="<++>"><CR>
             \	<label for="foo">Foo: </label><br><CR>
-            \	<input name="foo" type="<++>" id="<++>" class="<++>" value="<++>"><br><CR>
+            \	<input name="foo" type="<++>" id="<++>" class="form-control" value="<++>"><br><CR>
             \	<input type="submit" id="<++>" class="<++>" value="String"><br><CR>
 	    \ </form><CR>
 
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [button] <button class="btn" type="submit"> <++> </button>
 "Ordened List
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [olist] <ol class="<++>"  type="<++>"><CR>
 	\ <li> <++> </li><CR>
 	\ </ol>
-autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [item] <li> <++> </li>      
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [item] <li> <++> </li>
 
 "UnOrdened List
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [ulist] <ul class="<++>"  type="<++>"> <++> </ul>
 
 "Table
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [tcol] <td> <++> </td>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [thead] <thead><CR>
+	    \ 	<tr><CR>
+            \ 		<th><!--Head1 col1--> <++> </th><CR>
+            \ 		<th><!--Head2 col2--> <++> </th><CR>
+            \ 		<th><!--Head3 col3--> <++> </th><CR>
+	    \ 	</tr><CR>
+	    \ </thead><CR>
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [tbody] <tbody><CR>
+	    \	<tr><CR>
+	    \		<td><!--data1 col 1--> <++> </td><CR>
+	    \		<td><!--data2 col 2--> <++> </td><CR>
+	    \		<td><!--data3 col 3--> <++> </td><CR>
+	    \	</tr><CR>
+	    \	<tr><CR>
+	    \		<td><!--data4 col 1--> <++> </td><CR>
+	    \		<td><!--data5 col 2--> <++> </td><CR>
+	    \		<td><!--data6 col 3--> <++> </td><CR>
+	    \	</tr><CR>
+	    \ </tbody><CR>
+
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [tfoot] <tfoot><CR>
+            \ 		<th><!--footer-header col1--> <++> </th><CR>
+	    \		<td><!--footer-data col2--> <++> </td><CR>
+	    \ </tfoot><CR>
+
+autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [trow] <tr><CR>
+	\ 	<td> <++> </td><CR>
+	\ </td>
 autocmd FileType html,htm,php,sxhtml,xml,markdown,mdown,mkdn,md,mkd,mdwn,mdtxt,mdtext,text,Rmd,txt iabbrev [table] <table class="table" border="<++>" width="<++>"><CR>
-	    \ <caption> <CR><!-- Describe the table --><CR></caption>
+	    \ <caption> <CR><!-- Describe the table --><CR></caption><CR>
 	    \ <thead><CR>
 	    \ 	<tr><CR>
             \ 		<th><!--Head1 col1--> <++> </th><CR>
